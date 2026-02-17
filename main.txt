@@ -3,11 +3,25 @@
 #include <stdio.h>
 #include <wchar.h>
 
+void printBanner() {
+    printf("  /$$                                     /$$                        \n");
+    printf(" |__/                                    | $$                        \n");
+    printf("  /$$$$$$  /$$   /$$  /$$$$$$  /$$   /$$  /$$ /$$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$ \n");
+    printf(" /$$__  $$|  $$ /$$/ /$$__  $$|  $$ /$$/ | $$| $$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$\n");
+    printf("| $$$$$$$$ \\  $$$$/ | $$$$$$$$ \\  $$$$/  | $$| $$  \\ $$ /$$| $$$$$$$$| $$        | $$    | $$  \\ $$| $$  \\__/\n");
+    printf("| $$_____/  >$$  $$ | $$_____/  >$$  $$  | $$| $$  | $$| $$| $$_____/| $$        | $$ /$$| $$  | $$| $$      \n");
+    printf("|  $$$$$$$ /$$/\\  $$|  $$$$$$$ /$$/\\  $$ | $$| $$  | $$| $$|  $$$$$$$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      \n");
+    printf(" \\_______/|__/  \\__/ \\_______/|__/  \\__/ |__/|__/  |__/| $$ \\_______/ \\_______/   \\___/   \\______/ |__/      \n");
+    printf("                                                /$$  | $$                                      \n");
+    printf("                                               |  $$$$$$/                                       \n");
+    printf("                                                \\______/                                        \n");
+}
 
 
 
 
 void loadDLLInTarget(HANDLE hProcess, const char *dllPath) {
+     printBanner();
     // Allocate memory in the target process for the DLL path string
     size_t pathLen = strlen(dllPath) + 1;
     LPVOID remoteStr = VirtualAllocEx(hProcess, NULL, pathLen, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
@@ -134,6 +148,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
