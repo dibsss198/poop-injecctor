@@ -102,7 +102,7 @@ int main() {
     }
 
     HANDLE hProcess = OpenProcess(
-        PROCESS_VM_OPERATION | PROCESS_VM_WRITE | PROCESS_VM_READ, // needed permissions
+        PROCESS_VM_OPERATION | PROCESS_VM_WRITE | PROCESS_VM_READ | PROCESS_CREATE_THREAD, // needed permissions
         FALSE,
         pid
     );
@@ -133,4 +133,5 @@ int main() {
 
     return 0;
 }
+
 
